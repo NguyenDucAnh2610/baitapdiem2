@@ -1,0 +1,42 @@
+function getParameterByName(name) {name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");var regexS = "[\\?&]" + name + "=([^&#]*)";var regex = new RegExp(regexS);var results = regex.exec(window.location.search);if(results == null) {return "";} else {return decodeURIComponent(results[1].replace(/\+/g, " "));}}
+var site123_utm_createCookie = function(name, value, days) {var expires;if (days) {var date = new Date();date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));expires = "; expires=" + date.toGMTString();}
+else {expires = "";}
+document.cookie = name + "=" + value + expires + "; path=/; domain=site123.com";}
+function site123_utm_getCookie(name) {var value = "; " + document.cookie;var parts = value.split("; " + name + "=");if (parts.length == 2) return parts.pop().split(";").shift();}
+var site123_json 		= '';var site123_jsonGlobal 	= '';var site123_utm_source;var site123_utm_campaign;var site123_utm_medium;var site123_aff;var site123_gclid;var site123_utm_sid;var site123_refer_friend;var site123_utm_referrer;var site123_clientId;var site123_userLanguage;$(document).ready(function () {site123_utm_source         = getParameterByName('utm_source');site123_utm_campaign       = getParameterByName('utm_campaign');site123_utm_medium         = getParameterByName('utm_medium');site123_traffic            = getParameterByName('traffic');site123_aff                = getParameterByName('aff'); //Our affiliate tag
+site123_gclid 			   = getTrackParameter(); //Adwords or Bing or Facebook
+site123_utm_sid 		   = getParameterByName('sid'); //affiliate tracking code
+site123_refer_friend   	   = getParameterByName('friend'); //Our refer a friend tag
+site123_utm_referrer 	   = get_site123_utm_referrer();site123_userLanguage 	   = (typeof $('body').data('user-language') !== "undefined") ? $('body').data('user-language') : 'en';if (site123_utm_source!='' || site123_utm_campaign!='' || site123_utm_medium!='' || site123_aff!='' || site123_gclid!='' || site123_utm_sid!='' || site123_refer_friend!='') {site123_json = '{"utm_source":"'+site123_utm_source+'","utm_campaign":"'+site123_utm_campaign+'","utm_medium":"'+site123_utm_medium+'","aff":"'+site123_aff+'","gclid":"'+site123_gclid+'","utm_sid":"'+site123_utm_sid+'","utm_time":"'+site123_utm_GetDateTime()+'","refer_friend":"'+site123_refer_friend+'"}';if (site123_traffic.toLowerCase()!='rm') {site123_utm_createCookie('utm_site123',site123_json,30);}}
+if (site123_utm_source!='' || site123_utm_campaign!='' || site123_utm_medium!='' || site123_aff!='' || site123_gclid!='' || site123_utm_sid!='' || site123_utm_referrer!='' || site123_refer_friend!='') {site123_jsonGlobal = '{"sour":"'+site123_utm_source+'","camp":"'+site123_utm_campaign+'","med":"'+site123_utm_medium+'","aff":"'+site123_aff+'","gclid":"'+site123_gclid+'","sid":"'+site123_utm_sid+'","ref":"'+site123_utm_referrer+'","time":"'+site123_utm_GetDateTime()+'","device":"'+site123_ReturnDevice()+'","refer_friend":"'+site123_refer_friend+'"}';site123_utm_SaveGlobalUserUTM(site123_jsonGlobal);}
+if (window.ga) {ga(function(tracker) {site123_clientId 		   = tracker.get('clientId'); //Google Analytics client ID
+if (site123_clientId!='') {site123_utm_createCookie('utm_site123_clientId',site123_clientId,30);}
+if (site123_json!='') {$.ajax({type: "POST",url: "https://www.site123.com/include/utm_tracker.php",
+data: 'screenResolution='+screen.width+'X'+screen.height+'&utm_landingPage='+site123_utm_landingPage()+'&fullPageURL='+encodeURIComponent(window.location.href)+'&utm_referrer='+encodeURIComponent(get_site123_utm_referrer())+'&utm_source='+site123_utm_source+'&utm_campaign='+site123_utm_campaign+'&utm_medium='+site123_utm_medium+'&aff='+site123_aff+'&gclid='+site123_gclid+'&utm_sid='+site123_utm_sid+'&utm_time='+site123_utm_GetDateTime()+'&refer_friend='+site123_refer_friend+'&clientId='+site123_clientId+'&site123_userLanguage='+site123_userLanguage+'',success: function( data ) {var trackerID = data;site123_utm_createCookie('site123_trackerID',trackerID,365);}});}});}});function site123_utm_landingPage() {if (typeof window.utm_landingPage !== "undefined") {var utm_landingPage = window.utm_landingPage;} else {var utm_landingPage = getParameterByName('utm_landingPage');}
+return utm_landingPage;}
+function site123_utm_SaveGlobalUserUTM(json) {var existingCookie = site123_utm_getCookie('utm_site123_global');if (existingCookie && existingCookie.length>0 && site123_byteCount(existingCookie)+site123_byteCount(json)<=4000) {var updatedCookie = existingCookie + ',' + json;site123_utm_createCookie('utm_site123_global',updatedCookie,730);} else {site123_utm_createCookie('utm_site123_global',json,730);}}
+function site123_utm_GetDateTime() {var currentdate = new Date();return currentdate.getDate() + "/"
++ (currentdate.getMonth()+1)  + "/"
++ currentdate.getFullYear() + " "
++ currentdate.getHours() + ":"
++ currentdate.getMinutes() + ":"
++ currentdate.getSeconds();}
+function get_site123_utm_referrer() {var referrer = document.referrer;if (referrer && referrer!='') {referrer = referrer.toLowerCase();if (referrer.indexOf('site123.com') === -1) {return referrer;}}
+return '';}
+function site123_byteCount(s) {return encodeURI(s).split(/%..|./).length - 1;}
+function site123_ReturnDevice() {var userAgent = navigator.userAgent;if (userAgent.match(/Android/i)) {return 'Mobile-Android';}
+if (userAgent.match(/BlackBerry/i)) {return 'Mobile-BlackBerry';}
+if (userAgent.match(/iPhone/i)) {return 'Mobile-iPhone';}
+if (userAgent.match(/iPad/i)) {return 'Mobile-iPad';}
+if (userAgent.match(/iPod/i)) {return 'Mobile-iPod';}
+if (userAgent.match(/Opera Mini/i)) {return 'Mobile-Opera Mini';}
+if (userAgent.match(/IEMobile/i)) {return 'Mobile-IEMobile';}
+if (userAgent.match(/Macintosh/i)) {return 'Desktop-Macintosh';}
+if (userAgent.match(/Windows/i)) {return 'Desktop-Windows';}
+return 'Unknown Device';}
+function getTrackParameter() {var parameterCode = '';parameterCode = getParameterByName('gclid'); //Adwords tag
+if (parameterCode=='') {parameterCode = getParameterByName('msclkid'); //Bing tag
+}
+if (parameterCode=='') {parameterCode = getParameterByName('fbclid'); //Facebook tag
+}
+return parameterCode;}

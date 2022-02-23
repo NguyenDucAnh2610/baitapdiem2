@@ -1,0 +1,576 @@
+#wizard-box {
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    padding:12px;
+}
+
+.widget-body {
+    -webkit-box-shadow: 0 1px 2px #777;
+    -moz-box-shadow: 0 2px 1px #777;
+    box-shadow: 0 4px 6px #000;
+}
+.NextButtons {
+    margin-top: 25px;
+}
+
+.login-container {
+    width: 100%;
+    margin-top: 25px;
+}
+.templatesPage .login-container {
+    margin-top: 40px;
+}
+/* Ace Admin used 6px instead of 12px padding (on 6px we have scroll on mobile devices) */
+@media only screen and (max-width: 540px) {
+    .login-layout .main-content {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+/**
+ * Add clear both to every first row element related to the grid.
+ * When using `float` and the elements height are not the same 
+ * the grid will break. We add this code just in case, even that
+ * we fix the height using JS.
+ */
+div#MainCatList > div:nth-child(2n+1) {
+    clear: both;
+}
+@media (min-width: 768px) {
+    div#MainCatList > div:nth-child(2n+1) {
+        clear: none;
+    }
+    div#MainCatList > div:nth-child(3n+1) {
+        clear: both;
+    }
+}
+@media (min-width: 992px) {
+    div#MainCatList > div:nth-child(3n+1) {
+        clear: none;
+    }
+    div#MainCatList > div:nth-child(4n+1) {
+        clear: both;
+    }
+}
+
+/* Fix design for 320-359px resolutions (iPhone 5) */
+@media( max-width: 359px ) {
+    .boxCat h4 {
+        font-size: 14px;
+    }
+}
+
+
+.boxCat {
+    text-align: center;
+    cursor: pointer;
+    min-height: 110px;
+}
+.boxCat h4 {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+#category_chosen .chosen-single {
+    height: 50px !important;
+    font-size: 20px !important;
+    line-height: 34px !important;
+}
+
+
+.previewImage {
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+
+.theme {
+    border: 1px solid #ccc;
+    margin-bottom: 70px;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.themeBuild {
+    background-color: #f7f7f7;
+    padding:4px;
+    border-top: 1px solid #ccc;
+}
+
+.themeCat {
+	position: relative;
+    border: 1px solid #ccc;
+    margin-bottom: 70px;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.previewImageCat {
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+.themeTextCat {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+    background-color: #000;
+    padding: 3px;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+
+.tabs-left .tab-content, .tabs-right .tab-content {
+    overflow: visible;
+}
+
+.themeDesktopPreview {
+    width: 100%;
+    height: 250px;
+    cursor:pointer;
+}
+.themeMobilePreview {
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    top: 30%;
+    left: 68%;
+    border: 1px solid #ccc;
+    z-index: 1;
+    cursor:pointer;
+}
+html[dir=rtl] .themeMobilePreview {
+    right: 68%;
+    left: auto;
+}
+
+@media (min-width: 992px) {
+    #themePreview .modal-lg {
+        width: 80vw;
+        height: 80vh; /* control height here */
+    }
+}
+
+.subCat {
+    cursor:pointer;
+    font-size: 16px;
+    line-height: 2;
+}
+
+.tab-content {
+    border:0;
+}
+.tabs-left .tab-content, .tabs-right .tab-content {
+    overflow: visible;
+}
+
+.themeChooseActive {
+  outline: 4px solid #337ab7;
+}
+.themeDesktopPreview {
+    width: 350px;
+    height: 190px;
+    cursor:pointer;
+}
+.themeMobilePreview {
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    top: 20%;
+    left: 70%;
+    border: 1px solid #ccc;
+    z-index: 1;
+    cursor:pointer;
+}
+.themeChoose:hover {
+    outline: 4px solid #337ab7;
+}
+
+
+.questionHeader {
+    text-align: center;
+}
+
+.chosen-single {
+    height: 50px !important;
+    font-size: 20px !important;
+    line-height: 34px !important;
+}
+.chosen-container {
+    text-align: initial;
+}
+
+.bigTempImage {
+    position: relative;
+    padding-top:20px;
+    padding-bottom: 10px;
+   	min-height: 420px;
+    background-color: #000;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+}
+.templateBigImage {
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 100%;
+    height:100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 1;
+    background-color: #000;
+    background-position: center center;
+    opacity: 0.5;
+    background-image: url(//cdn-cms.f-static.com/admin/websitesCategories/89/2000_576bbf62cb9fd.jpg);
+    filter:blur(6px);
+}
+.rowMainImage {
+	position: relative;
+    width: 100%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.rowMainImage > div {
+    display: inline;
+}
+.rowMainImage > div > div {
+    text-align: center;
+}
+.rowMainImage h1 {
+    font-size: 50px;
+}
+.tempText p {
+    text-align: center;
+    font-size: 18px;
+    word-spacing: 2px;
+}
+
+.filterCat {
+    margin: 32px 0;
+}
+.filterCat .chooseCat {
+    cursor: pointer;
+    color: white;
+    padding: 2px 8px;
+   	display: inline-block;
+    margin-top: 4px;
+}
+.filterCat .chooseCat.active {
+    background-color: #2396f4 !important;
+    border-color: #2396f4 !important;
+    color: #ffffff !important;
+}
+.onlyFilter .filterCat .chooseCat {
+	border: 1px solid #000;
+    background-color: white;
+    color: black;
+}
+.onlyFilter .filterCat .chooseCat.active {
+    background-color: black;
+    color: white;
+}
+#MainCatList .well {
+    border: 1px solid rgba(0,0,0,.2);
+    background-color: #fff;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    transition: background-color ease-in-out 0.2s;
+}
+#MainCatList .well:hover {
+    background-color: #000;
+    transition: background-color ease-in-out 0.2s;
+}
+#wizard-box {
+    background-color: transparent;
+    border-radius: 0;
+    border: 0;
+    padding: 0;
+}
+.boxCat {
+    padding: 35px;
+}
+.boxCat .bottom {
+    padding-top: 10px;
+}
+.boxCat:hover {
+    background-color: transparent !important;
+}
+div.wizardSteps  {
+    border: 1px solid rgba(0,0,0,.2);
+    border-top: 0px solid rgba(0,0,0,.2);
+    background-color: #fff;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    transition: background-color ease-in-out 0.2s;
+    padding: 0px 50px 50px 50px;
+    /*padding:50px;*/
+}
+/* Image Library (Homepage Image Step) */
+
+body.hide-l-top-toolbar {
+    margin-top: 0 !important;
+}
+.libraryPixabayIcon {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: white;
+    background-color: #444;
+    opacity: 0.8;
+    padding: 1px;
+    border: 0;
+    font-size: 9px;
+    width: 100%;
+    padding: 2px;
+}
+.libraryPixabayIcon a,.libraryPixabayIcon a:hover {
+    color:white;
+}
+.l-top-toolbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+.hide-l-top-toolbar .l-top-toolbar {
+    display: none;
+}
+.l-bottom-toolbar {
+    width: 100%;
+    padding: 0 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    background-color: #F5F5F5;
+    z-index: 1;
+    border-top:1px solid #ccc;
+}
+.l-top-toolbar,
+.l-bottom-toolbar {
+    height: 70px;
+}
+#thumbsContainerParent {
+    height: calc(400px);    /* user screen - (l-top-toolbar + l-bottom-toolbar) */
+    overflow-y: scroll;
+}
+.hide-l-top-toolbar #thumbsContainerParent {
+    height: calc(100vh - 70px);    /* user screen - l-bottom-toolbar */
+}
+.l-bottom-toolbar > .btn {
+    min-width: 120px;
+}
+#tagsList {
+    width: 120px;
+}
+.libraryImage {
+    width:210px;
+    height:170px;
+}
+
+/* Mobile & Tablet
+----------------------------------*/
+@media(max-width:767px) {
+    .libraryImage {
+        width:216px;
+        height:170px;
+    }
+}
+#colorList li {
+    cursor:pointer;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    position: relative;
+}
+.list-group-item {
+    padding: 2px 9px;
+}
+ul#colorList li {
+    float: left;
+    line-height: 28px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 0 0;
+    text-align: center;
+}
+.libraryImage {
+    cursor: pointer;
+}
+#thumbsContainer li {
+    border: 4px solid rgba(51, 51, 51, 0.13);
+}
+#thumbsContainer li:hover {
+    border: 4px solid rgba(51, 51, 51, 0.6);
+}
+#thumbsContainer li.active {
+    border: 4px solid #428BCA;
+    background-color: #333;
+}
+.SaveInsideButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    min-width: 120px;
+}
+.loadingInsideButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.imageSelected {
+    opacity: 0.3;
+}
+
+/* Progress Bar */
+.card {
+  position: relative;
+  border: 1px solid rgba(0,0,0,.2);
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  margin-bottom: 24px;
+  background-color: #fff;
+  /*-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);*/
+  /*box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);*/
+}
+
+.step-progress {
+  padding: 16px;
+  margin: 0 auto;
+}
+
+.step-progress .step-slider {
+  width: 100%;
+}
+
+.step-progress .step-slider .step-slider-item {
+
+  /* the width is set by JS  */
+  /*width: 10%;*/ 
+  height: 1px;
+  position: relative;
+  float: left;
+  background-color: #E0E0E0;
+}
+
+.step-progress .step-slider .step-slider-item:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: -6px;
+  right: 0;
+  background-color: #FAFAFA;
+  border: 1px solid #E0E0E0;
+  border-radius: 50%;
+  z-index: 2;
+  transition: all 0.3s ease-out 0.5s;
+  -webkit-transition: all 0.3s ease-out 0.5s;
+}
+
+.step-progress .step-slider .step-slider-item:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: #B0BEC5;
+  z-index: 1;
+  -webkit-transition: all 0.5s ease-out;
+}
+
+.step-progress .step-slider .step-slider-item.active:before {
+  width: 100%;
+  background-color: #2196F3;
+}
+
+.step-progress .step-slider .step-slider-item.active:after {
+  border-color: #2196F3;
+}
+
+.step-content {
+  /*padding: 16px 0; */
+}
+
+.step-content .step-content-foot {
+  text-align: right;
+}
+
+.step-content .step-content-foot button {
+  border: 0;
+  padding: 8px 16px;
+  background-color: #CFD8DC;
+  font-size: 14px;
+  border-radius: 3px;
+  outline: 0;
+}
+
+.step-content .step-content-foot button:active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.step-content .step-content-foot button.out {
+  display: none;
+}
+
+.step-content .step-content-foot button.disable {
+  background-color: #ECEFF1;
+}
+
+.step-content .step-content-foot button.active {
+  background-color: #00ACC1;
+  color: white;
+}
+
+.step-content .step-content-body {
+ /* padding: 16px 0;
+  text-align: center;
+  font-size: 18px;*/
+}
+
+.step-content .step-content-body.out {
+  display: none;
+}
+
+.no-bottom-border {
+    border-bottom: 0px solid rgba(0,0,0,.2);
+}
+
+/* Drop zone css */
+.dropzone .dz-preview .dz-success-mark:before,
+.dropzone-previews .dz-preview .dz-success-mark:before,
+.dropzone .dz-preview .dz-error-mark:before,
+.dropzone-previews .dz-preview .dz-error-mark:before  {
+  content: "";  
+}
+.container-fluid.all-templates-preview {
+    padding-top: 50px;
+}

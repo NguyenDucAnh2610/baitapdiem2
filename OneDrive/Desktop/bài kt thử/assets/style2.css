@@ -1,0 +1,95 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+.fa-x {
+    font-size: 30px;
+    position: absolute;
+    right: 50px;
+    top: 30px;
+
+}
+.container-step2{
+    text-align: center;
+}
+.steps-place{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 7px;
+}
+.active-step{
+    background-color: #2196F3;
+    color: white;
+    border-color: #2196F3;
+
+}
+.steps-place > .step{
+    padding: 4px 11px;
+    border: 1px solid rgba(0,0,0,.2);
+    font-weight: 400;
+
+}
+.title-content{
+    text-align: center;
+    font-size: 45px;
+    letter-spacing: 1px;
+    font-weight: normal;
+    font-family: inherit;
+    line-height: 1.1;
+}
+.container-card{
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-top: 20px;
+
+}
+.main-card-lists{
+    margin-left: -12px;
+    margin-right: -12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+.first-col-cards .card,
+.second-col-cards .card,
+.third-col-cards .card,
+.fourth-col-cards .card{
+    position: relative;
+    min-height: 1px;
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 33.333%;
+    font-size: 14px;
+}
+.first-col-cards .card .card-content,
+.second-col-cards .card .card-content,
+.third-col-cards .card .card-content,
+.fourth-col-cards .card .card-content{
+    width: 240px;
+    height: 123px;
+    border: 1px solid rgba(0,0,0,.2);
+    background-color: #fff;
+    box-shadow: 0 2px 20px rgb(0 0 0 / 5%);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    text-align: center;
+    margin-bottom: 10px;
+
+}
+.fa-solid{
+    font-size: 25px;
+    margin-bottom: 5px;
+}
